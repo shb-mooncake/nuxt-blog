@@ -56,7 +56,7 @@ copyright:
 - 绘制页面：将生成的布局信息交给浏览器的绘图引擎，通过 GPU 加速将像素绘制（Paint）到屏幕上。
 - 浏览器回流和重绘：如果页面发生改变，浏览器需要重新计算布局和绘制，这可能会导致性能问题。因此我们应尽量避免频繁的 DOM 操作和调整元素样式，以减少不必要的回流和重绘。
 
-![渲染流程概图](../../src/.vuepress/public/assets/images/render.jpg)
+![渲染流程概图](/img/performance/render.jpg)
 
 ### 注意
 
@@ -101,7 +101,7 @@ JS阻塞：浏览器不知道后续脚本的内容，如果先去解析了下面
 
     demo地址：https://googlechrome.github.io/devtools-samples/jank/
 
-![录制卡顿到优化到流畅](../../src/.vuepress/public/assets/images/performance.png)
+![录制卡顿到优化到流畅](/img/performance/performance.png)
 
 整个面板中，1为概览面板，2为线程面板，而最下方的饼图为详情面板
 
@@ -115,21 +115,21 @@ JS阻塞：浏览器不知道后续脚本的内容，如果先去解析了下面
 
 单个任务从上往下为调用关系，Anemotion Frame Fired 调用了Function Call ， 而Function Call 调用了app.update，我们管Main展开看到的图叫火焰图 ，只是火焰苗是朝下的，因为随着调用栈越来越深，每个任务将会越分越细，从而形成上宽下窄的倒火焰形状。
 
-![优化前](./image/image.png)
+![优化前](/img/performance/image.png)
 
 在面板中我们可以点击某一个色块查看详情，跟随调用栈的足迹，我们找到位于火焰顶部的Js色块即app.update色块，查看图中蓝色区域的详情，这里显示执行自身Js花费了23ms，接下来对Js调用的rendering花费了24ms，从图中可以看到在app.update色块有无数的紫色小方块，而等待这些紫色小方块的执行延长了整个Js的执行时间。
 
-![优化后](./image/image-1.png)
+![优化后](/img/performance/image-1.png)
 
 优化后的面板app.update色块所有的紫色小方块都消失了，而紫色小方块是跟布局有关的活动，看到这里我们可以锁定优化前的js代码中存在改变布局的操作，毋庸置疑，在移动蓝色小方块时，必然会导致布局的变化，而优化前后，到底是什么操作导致优化前在执行js时进行了反复的布局计算，而优化后只在js执行后才执行一次布局计算并更新页面呢？看来我们得进入代码层面继续我们的调查了。
 
-![任务详情代码](./image/image-2.png)
+![任务详情代码](/img/performance/image-2.png)
 
 在概览面板调整查看范围，直到能够点击查看某个任务的详情
 点击app.update色块
 在详情面板中点击相应的Function进入相关代码
 
-![Alt text](./image/image-3.png)
+![Alt text](/img/performance/image-3.png)
 在这个界面中，我们可以看到最右边除了有代码所在的行数，还有代码执行某一行需要多长的时间，黄色越深执行时间越长。
 
 ## 总结

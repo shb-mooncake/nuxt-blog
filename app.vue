@@ -2,7 +2,7 @@
   <div>
     <NuxtLayout>
       <template #header>
-        <div class="h-16 px-6 py-2 flex flex-row content-between shadow-md">
+        <div class="h-16 px-6 py-2 flex flex-row content-between shadow-md fixed top-0 left-0 w-full bg-white">
           <div
             class="grow flex justify-start items-center hover:text-teal-400 cursor-pointer"
             @click="home"

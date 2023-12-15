@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <p>{{ $route.query.title }}-{{ $route.query.id }}</p>
+  <div class="my-0 mx-auto prose pt-8 " >
     <ContentDoc path="/se" />
   </div>
 </template>
