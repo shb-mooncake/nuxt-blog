@@ -1,83 +1,93 @@
 <template>
   <div>
     <img src="~assets/img/banner.jpg" class="w-full h-96 mb-3" alt="" />
-    <div class="flex w-8/12 my-0 mx-auto">
-      <div class="w-3/4 ">
-        <article v-for="(item,index) in articleList" class="h-40 px-5 py-3 p-3 rounded shadow-xl mb-4  hover:scale-105 flex flex-row justify-start" @click="detail(item)"> 
-          <img src="~assets/img/portrait.jpg" alt="" class="h-full w-1/3 mr-5">
+    <div class="flex w-8/12 my-0 mx-auto !z-10">
+      <div class="w-3/4">
+        <article
+          v-for="(item, index) in articleList"
+          class="h-40 px-5 py-3 p-3 rounded shadow-xl mb-4 hover:scale-105 flex flex-row justify-start bg-neutral-400"
+          @click="detail(item)"
+        >
+          <img
+            src="~assets/img/portrait.jpg"
+            alt=""
+            class="h-full w-1/3 mr-5"
+          />
           <div class="w-full flex flex-col justify-between items-start">
-            <h5 class="text-xl border-b-2 border-gray-300 w-full pb-3" ><span class="hover:text-teal-400 cursor-pointer">{{item.title}}</span></h5>
-            <div class="flex justify-end w-full" >
+            <h5 class="text-xl border-b-2 border-gray-300 w-full pb-3">
+              <span class="hover:text-teal-400 cursor-pointer">{{
+                item.title
+              }}</span>
+            </h5>
+            <div class="flex justify-end w-full">
               <Icon name="ant-design:clock-circle-filled" color="black" />
-              <span>{{item.date}}</span>
+              <span>{{ item.date }}</span>
             </div>
           </div>
         </article>
       </div>
-      <div class="w-1/4 h-80 ml-6 rounded  shadow-xl flex flex-col justify-center items-center sticky top-16">
-        <img class="w-16 mb-2" src="~assets/img/portrait.jpg" alt="">
-        <span class="mb-2 text-lg">moonandcake</span>
-        <span>一名前端开发</span>
+      <div class="w-1/4">
+        <UserInfoCard />
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
 const articleList = ref([
   {
-    id:"1",
+    id: "1",
     title: "浏览器渲染流程及优化",
     date: "2023年12月6日",
   },
   {
-    id:"2",
+    id: "2",
     title: "浏览器渲染流程及优化",
     date: "2023年12月6日",
   },
   {
-    id:"3",
+    id: "3",
     title: "浏览器渲染流程及优化",
     date: "2023年12月6日",
   },
   {
-    id:"4",
+    id: "4",
     title: "浏览器渲染流程及优化",
     date: "2023年12月6日",
   },
   {
-    id:"5",
+    id: "5",
     title: "浏览器渲染流程及优化",
     date: "2023年12月6日",
   },
   {
-    id:"6",
+    id: "6",
     title: "浏览器渲染流程及优化",
     date: "2023年12月6日",
   },
   {
-    id:"7",
+    id: "7",
     title: "浏览器渲染流程及优化",
     date: "2023年12月6日",
   },
   {
-    id:"8",
+    id: "8",
     title: "浏览器渲染流程及优化",
     date: "2023年12月6日",
   },
   {
-    id:"9",
+    id: "9",
     title: "浏览器渲染流程及优化",
     date: "2023年12月6日",
   },
 ]);
-function detail(item){
+
+function detail(item) {
   navigateTo({
     path: `/article/${item.id}`,
     query: {
       id: item.id,
-      title:item.title
-    }
-  })
+      title: item.title,
+    },
+  });
 }
 </script>

@@ -2,7 +2,9 @@
   <div>
     <NuxtLayout>
       <template #header>
-        <div class="h-16 px-6 py-2 flex flex-row content-between shadow-md fixed top-0 left-0 w-full bg-white z-50">
+        <div
+          class="h-16 px-6 py-2 flex flex-row content-between shadow-md fixed top-0 left-0 w-full bg-white z-50"
+        >
           <div
             class="grow flex justify-start items-center hover:text-teal-400 cursor-pointer"
             @click="home"
@@ -18,25 +20,31 @@
             >
               <template v-for="(item, index) in menuList">
                 <el-menu-item v-if="!item.children" :index="item.id">
-                  <Icon :name="item.iconName" color="black" />
                   <template #title>
-                    <NuxtLink :to="item.path">{{
-                      item.titleName
-                    }}</NuxtLink></template
+                    <NuxtLink :to="item.path"
+                      ><Icon :name="item.iconName" color="black" />
+                      <span class="pl-1">{{ item.titleName }}</span></NuxtLink
+                    ></template
                   >
                 </el-menu-item>
                 <el-sub-menu v-if="item.children" :index="item.id">
                   <template #title>
-                    <Icon :name="item.iconName" color="black" />
-                    <NuxtLink :to="item.path">{{ item.titleName }}</NuxtLink>
+                    <NuxtLink :to="item.path"
+                      ><Icon :name="item.iconName" color="black" /><span
+                        class="pl-1"
+                        >{{ item.titleName }}</span
+                      ></NuxtLink
+                    >
                   </template>
                   <el-menu-item-group>
                     <el-menu-item
                       v-for="menus in item.children"
                       :index="menus.id"
-                      ><NuxtLink :to="item.path">{{
-                        item.titleName
-                      }}</NuxtLink></el-menu-item
+                      ><NuxtLink :to="item.path"
+                        ><span class="pl-1">{{
+                          item.titleName
+                        }}</span></NuxtLink
+                      ></el-menu-item
                     >
                   </el-menu-item-group>
                 </el-sub-menu>
@@ -51,6 +59,13 @@
         </div>
       </template>
       <div class="mt-16">
+        <vue-particles
+          id="tsparticles"
+          class="!absolute !-z-10"
+          :particlesInit="particlesInit"
+          :particlesLoaded="particlesLoaded"
+          :options="tsparticlesOptions"
+        />
         <NuxtPage />
       </div>
       <template #footer>
@@ -63,7 +78,9 @@
 <script setup>
 import { ref } from "vue";
 import { useRoute } from "vue-router";
+import { loadSlim } from "tsparticles-slim";
 import avatar from "./assets/img/portrait.jpg";
+import tsparticlesOptions from "./particles";
 const activeIndex = ref("1");
 const menuList = ref([
   {
@@ -116,6 +133,14 @@ watch(
   },
   { flush: "pre", immediate: true, deep: true }
 );
+const particlesInit = async (engine) => {
+  //await loadFull(engine);
+  await loadSlim(engine);
+};
+
+const particlesLoaded = async (container) => {
+  console.log("Particles container loaded", container);
+};
 function home() {
   navigateTo({
     path: "/",

@@ -1,5 +1,5 @@
 <template>
-  <div class="my-0 mx-auto prose pt-8 " >
+  <div class="md-class" >
     <ContentDoc path="/se" />
   </div>
 </template>
@@ -22,3 +22,12 @@ defineProps({
   },
 });
 </script>
+<style lang="scss">
+.md-class{
+  a{
+    color:white;
+  }
+  @apply my-0 mx-auto prose pt-8 text-white
+  
+}
+</style>

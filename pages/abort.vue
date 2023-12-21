@@ -9,7 +9,7 @@
             src="~assets/img/portrait.jpg"
             alt=""
           />
-          <div class="p-2">
+          <div class="p-2 mt-2 text-white">
             <span>moonandcake</span>
             <div>
               <Icon name="carbon:location-current" color="black" />
@@ -25,14 +25,8 @@
         <el-divider border-style="dashed" />
       </div>
       <div class="w-1/4 sticky top-16">
-        <div
-          class="h-80 ml-6 rounded shadow-xl flex flex-col justify-center items-center"
-        >
-          <img class="w-16 mb-2" src="~assets/img/portrait.jpg" alt="" />
-          <span class="mb-2 text-lg">moonandcake</span>
-          <span>一名前端开发</span>
-        </div>
-        <el-calendar ref="calendar" class="mt-6 ml-6 rounded shadow-xl">
+        <UserInfoCard />
+        <el-calendar ref="calendar" class="mt-6 ml-6 rounded shadow-xl sticky top-96">
           <template #header="{ date }">
             <el-button-group>
               <el-button size="small" @click="selectDate('prev-year')">
@@ -41,9 +35,9 @@
               <el-button size="small" @click="selectDate('prev-month')">
                 Previous Month
               </el-button>
-              <el-button size="small" @click="selectDate('today')"
-                >Today</el-button
-              >
+              <el-button size="small" @click="selectDate('today')">
+                Today
+              </el-button>
               <el-button size="small" @click="selectDate('next-month')">
                 Next Month
               </el-button>
