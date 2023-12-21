@@ -1,76 +1,34 @@
 <template>
-  <div class="flex w-8/12 my-0 mx-auto flex-col mt-3">
-    <article
-      v-for="(item, index) in articleList"
-      class="h-32 px-5 py-3 p-3 rounded shadow-xl mb-4 flex flex-col justify-around items-start hover:scale-105"
-      @click="detail(item)"
+  <div>{{ nickName }}</div>
+  <!-- <el-tabs v-model="activeName" class="demo-tabs">
+    <el-tab-pane
+      v-for="item in channelList"
+      :label="item.id"
+      :name="item.name"
+      >{{ item.name }}</el-tab-pane
     >
-      <h5 class="text-xl border-b-2 border-gray-300 w-full pb-3">
-        <span class="hover:text-teal-400 cursor-pointer">{{ item.title }}</span>
-      </h5>
-      <div class="flex justify-start">
-        <Icon name="ant-design:clock-circle-filled" color="black" />
-        <span>{{ item.date }}</span>
-      </div>
-    </article>
+  </el-tabs> -->
+  <div>
+    <!-- <div>Post state: {{ resDataSuccess }}</div> -->
+    <!-- <div>Get Data: {{ resData }}</div> -->
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
-const articleList = ref([
-  {
-    id: "1",
-    title: "浏览器渲染流程及优化",
-    date: "2023年12月6日",
-  },
-  {
-    id: "2",
-    title: "浏览器渲染流程及优化",
-    date: "2023年12月6日",
-  },
-  {
-    id: "3",
-    title: "浏览器渲染流程及优化",
-    date: "2023年12月6日",
-  },
-  {
-    id: "4",
-    title: "浏览器渲染流程及优化",
-    date: "2023年12月6日",
-  },
-  {
-    id: "5",
-    title: "浏览器渲染流程及优化",
-    date: "2023年12月6日",
-  },
-  {
-    id: "6",
-    title: "浏览器渲染流程及优化",
-    date: "2023年12月6日",
-  },
-  {
-    id: "7",
-    title: "浏览器渲染流程及优化",
-    date: "2023年12月6日",
-  },
-  {
-    id: "8",
-    title: "浏览器渲染流程及优化",
-    date: "2023年12月6日",
-  },
-  {
-    id: "9",
-    title: "浏览器渲染流程及优化",
-    date: "2023年12月6日",
-  },
-]);
-function detail(item) {
-  navigateTo({
-    path: `/article/${item.id}`,
-    query: {
-      id: item.id,
-      title: item.title,
-    },
-  });
-}
+import { userManager } from "@/stores";
+import { storeToRefs } from "pinia";
+// 从pinia 中获取数据转为响应式
+const store = userManager();
+const { nickName } = storeToRefs(store);
+// let activeName = ref(1);
+// const { data: channelList } = await useFetch("/api/channel");
+
+// const { data: resDataSuccess } = await useFetch("/api/test", {
+//   method: "post",
+//   body: {
+//     text: "Welcome To Nuxt3",
+//   },
+// });
+// const { data: resData } = await useFetch("/api/aaa");
+let res = await useFetch("/api/hello")
+console.log(res)
 </script>

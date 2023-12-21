@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-8/12 my-0 mx-auto flex-col mt-3">
+  <div class="flex w-8/12 my-0 mx-auto flex-col mt-20">
     <article
       v-for="(item, index) in articleList"
       class="h-32 px-5 py-3 p-3 rounded shadow-xl mb-4 flex flex-col justify-around items-start hover:scale-105"

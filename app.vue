@@ -2,12 +2,12 @@
   <div>
     <NuxtLayout>
       <template #header>
-        <div class="h-16 px-6 py-2 flex flex-row content-between shadow-md fixed top-0 left-0 w-full bg-white">
+        <div class="h-16 px-6 py-2 flex flex-row content-between shadow-md fixed top-0 left-0 w-full bg-white z-50">
           <div
             class="grow flex justify-start items-center hover:text-teal-400 cursor-pointer"
             @click="home"
           >
-            <img class="w-10" :src="avatar" alt="" /><span>moonandcake</span>
+            <img class="w-10" :src="avatar" alt="" />
           </div>
           <div class="grow flex justify-center items-center">
             <el-menu
@@ -43,12 +43,16 @@
               </template>
             </el-menu>
           </div>
-          <div class="grow flex justify-end items-center">
-            <el-avatar :src="avatar" />
+          <div
+            class="grow flex justify-end items-center hover:text-teal-400 cursor-pointer"
+          >
+            <img class="w-10" :src="avatar" alt="" /><span>moonandcake</span>
           </div>
         </div>
       </template>
-      <NuxtPage />
+      <div class="mt-16">
+        <NuxtPage />
+      </div>
       <template #footer>
         <div class="flex justify-center items-center h-8">到底了！</div>
       </template>
@@ -76,9 +80,9 @@ const menuList = ref([
   },
   {
     id: "3",
-    titleName: "设计模式",
-    iconName: "material-symbols-light:chrome-reader-mode",
-    path: "/algorithm",
+    titleName: "关于",
+    iconName: "carbon:user-filled",
+    path: "/abort",
   },
   // {
   //   id: 4,
