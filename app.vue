@@ -101,6 +101,12 @@ const menuList = ref([
     iconName: "carbon:user-filled",
     path: "/abort",
   },
+  {
+    id: "4",
+    titleName: "测试",
+    iconName: "carbon:user-filled",
+    path: "/algorithm",
+  },
   // {
   //   id: 4,
   //   titleName: "学生管理",

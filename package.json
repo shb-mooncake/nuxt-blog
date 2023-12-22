@@ -3,22 +3,25 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
+    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.7",
     "@nuxt/devtools": "npm:@nuxt/devtools-edge@latest",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
     "autoprefixer": "^10.4.16",
+    "cross-env": "^7.0.3",
     "dayjs-nuxt": "^2.1.9",
     "element-plus": "^2.4.3",
     "nuxt": "^3.8.2",
     "nuxt-icon": "^0.6.7",
     "postcss": "^8.4.32",
+    "push-dir": "^0.4.1",
     "tailwindcss": "^3.3.6",
     "vue": "^3.3.10",
     "vue-router": "^4.2.5"
@@ -28,6 +31,7 @@
     "@nuxt/content": "^2.9.0",
     "@pinia/nuxt": "^0.5.1",
     "@tailwindcss/typography": "^0.5.10",
+    "animate.css": "^4.1.1",
     "mysql": "^2.18.1",
     "pinia": "^2.1.7",
     "reflect-metadata": "^0.1.14",

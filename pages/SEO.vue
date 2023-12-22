@@ -1,18 +1,6 @@
 <template>
   <div class="flex w-8/12 my-0 mx-auto flex-col mt-20">
-    <article
-      v-for="(item, index) in articleList"
-      class="h-32 px-5 py-3 p-3 rounded shadow-xl mb-4 flex flex-col justify-around items-start hover:scale-105 bg-neutral-400"
-      @click="detail(item)"
-    >
-      <h5 class="text-xl border-b-2 border-gray-300 w-full pb-3">
-        <span class="hover:text-teal-400 cursor-pointer">{{ item.title }}</span>
-      </h5>
-      <div class="flex justify-start">
-        <Icon name="ant-design:clock-circle-filled" color="black" />
-        <span>{{ item.date }}</span>
-      </div>
-    </article>
+    <ScrollList :list="articleList" />
   </div>
 </template>
 <script setup>
@@ -64,13 +52,4 @@ const articleList = ref([
     date: "2023年12月6日",
   },
 ]);
-function detail(item) {
-  navigateTo({
-    path: `/article/${item.id}`,
-    query: {
-      id: item.id,
-      title: item.title,
-    },
-  });
-}
 </script>
