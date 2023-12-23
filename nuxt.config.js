@@ -8,6 +8,9 @@ const routerBase =
       }
     : {}
 export default defineNuxtConfig({
+  server:{
+    port:80
+  },
   pages: true,
   devtools: { enabled: true },
   css: ["~/assets/css/main.css", "animate.css/animate.css"],
@@ -72,6 +75,9 @@ export default defineNuxtConfig({
         tls: {}, // tls/ssl
       },
     },
+  },
+  generate:{
+    subFolders:false,
   },
   ...routerBase,
 });
