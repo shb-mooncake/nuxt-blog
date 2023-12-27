@@ -11,7 +11,6 @@ export default defineNuxtConfig({
   server:{
     port:80
   },
-  basePath: '/nuxt-blog',
   pages: true,
   devtools: { enabled: true },
   css: ["~/assets/css/main.css", "animate.css/animate.css"],
@@ -22,6 +21,7 @@ export default defineNuxtConfig({
     },
   },
   app: {
+    basePath: '/nuxt-blog',
     buildAssetsDir: "static", //修改站点资产的文件夹名称，默认是_nuxt
   },
   ssr:true,
