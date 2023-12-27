@@ -3,7 +3,7 @@ const routerBase =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
         router: {
-          base: '/nuxt-blog/'
+          base: '/nuxt-blog'
         }
       }
     : {}
@@ -79,6 +79,7 @@ export default defineNuxtConfig({
     },
   },
   generate:{
+    dir:"docs",
     subFolders:false,
   },
   ...routerBase,
