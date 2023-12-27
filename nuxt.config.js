@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     },
   },
   app: {
-    basePath: '/nuxt-blog/',
+    basePath: '/nuxt-blog',
     buildAssetsDir: "static", //修改站点资产的文件夹名称，默认是_nuxt
   },
   ssr:true,
