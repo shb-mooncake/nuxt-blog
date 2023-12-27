@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   server:{
     port:80
   },
-  basePath: '/nuxt-blog'
+  basePath: '/nuxt-blog',
   pages: true,
   devtools: { enabled: true },
   css: ["~/assets/css/main.css", "animate.css/animate.css"],
