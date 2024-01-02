@@ -3,7 +3,7 @@ const routerBase =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
         router: {
-          base: '/nuxt-blog'
+          base: '/nuxt-blog/'
         }
       }
     : {}
@@ -21,8 +21,8 @@ export default defineNuxtConfig({
     },
   },
   app: {
-    basePath: '/nuxt-blog',
-    buildAssetsDir: "static", //修改站点资产的文件夹名称，默认是_nuxt
+    baseURL: '/nuxt-blog/',
+    buildAssetsDir: "/static/", //修改站点资产的文件夹名称，默认是_nuxt
   },
   ssr:true,
   experimental: {
